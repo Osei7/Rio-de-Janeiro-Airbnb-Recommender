@@ -1,73 +1,72 @@
 
 # Airbnb Recommender - Rio de Janeiro 
-This project is a part of the [Data Science Working Group](http://datascience.codeforsanfrancisco.org) at [Code for San Francisco](http://www.codeforsanfrancisco.org).  Other DSWG projects can be found at the [main GitHub repo](https://github.com/sfbrigade/data-science-wg).
-
-#### -- Project Status: [Completed]
 
 ## Project Intro/Objective
-The purpose of this project is build a listig recommender system for those looking for Airbnb options. ________. (Describe the main goals of the project and potential civic impact. Limit to a short paragraph, 3-6 Sentences)
+The purpose of this project is take a pre-existing inventory of Airbnb listings in Rio De Janeiro, Brazil and build a listing recommender system. Users can search available inventory by ID and select the option to have an additional 10 listings recommended that most match the initially selected listing. 
 
 ### Methods Used
-* Receommender Systems
+* Data Visualization
 * Inferential Statistics
 * Machine Learning
-* Data Visualization
-* Predictive Modeling
+* Natural Learning Processing
+* Recommender Systems
+
 * etc.
 
 ### Technologies
-* Python
-* Jupyter, 
-* Pandas, Matplotlib, Numpy
-* Folium
 * Cosine Similarity
+* Feature Extraction - Tfid Vectorizer
+* Folium
+* Jupyter 
+* Python - Pandas, Matplotlib, Numpy
 * Streamlit
+
 * etc. 
 
 ## Project Description
-(Provide more detailed overview of the project.  Talk a bit about your data sources and what questions and hypothesis you are exploring. What specific data analysis/visualization and modelling work are you using to solve the problem? What blockers and challenges are you facing?  Feel free to number or bullet point things here)
+This project initially began with a hypothesis I could accurately predict what a property in Rio De Janiero would list for on Airbnb. From there I would use streamlit to create a web hosted app allowing people to input the features of their property to generate a price. After doing a quick glance at the key features of the data, the data was messy. there was less than 8% correlation with the highest correlated feature.
 
-## Needs of this project
+Data cleaning consisted of removing special characters and spaces from key categories such as price, then reformatting those features frmo objects to integers, floats, or categorical. In addition there were several null vales. Numerical features were imputed with a linear regression (later in the recommender notebook these will be replaced with the mean or mode of each individual column depending on type). Columns with object values were replaced with missing. 
 
-- frontend developers
-- data exploration/descriptive statistics
-- data processing/cleaning
-- statistical modeling
-- writeup/reporting
-- etc. (be as specific as possible)
+From there After attempting several versions of a regression model using Polynomial Features, Feature Selection, PCA, One Hot Encoding Neighborhoods, the best Accuracy score produced on the test set was 0.002.
+At this point I pivoted to building an interactive recommender system that suggests additional airbnb options to clients based on a selected listing. The model uses TfidVectorizer to analyze the description, accounting for Potuguese and English stop words to match closely described listings. 
 
-## Getting Started
-
-1. Clone this repo (for help see this [tutorial](https://help.github.com/articles/cloning-a-repository/)).
-2. Raw Data is being kept [here](Repo folder containing raw data) within this repo.
-
-    *If using offline data mention that and how they may obtain the data from the froup)*
-    
-3. Data processing/transformation scripts are being kept [here](Repo folder containing data processing scripts/notebooks)
-4. etc...
-
-*If your project is well underway and setup is fairly complicated (ie. requires installation of many packages) create another "setup.md" file and link to it here*  
-
-5. Follow setup [instructions](Link to file)
-
-## Featured Notebooks/Analysis/Deliverables
-* [Notebook/Markdown/Slide Deck Title](link)
-* [Notebook/Markdown/Slide DeckTitle](link)
-* [Blog Post](link)
+## Folders
+1. Code: contains the jupyter lab notebooks for cleaning, Exploratory Data Analysis, and the recommender model.
+2. Data: the sources of data for the project
+3. Visualizations & Presentation: the visual representations of data from EDA and presentation slides of the project
 
 
-## Contributing DSWG Members
+### Credits & Resources:
+1. Hank Butler, GA Assembly DSI
+* Lesson 7.05 - Recommender Systems
+* Lesson 9.06 - Streamlit
 
-**Team Leads (Contacts) : [Full Name](https://github.com/[github handle])(@slackHandle)**
+2. Marcello Dichiera, Data Scientist / Medium Contributer
+* https://medium.com/geekculture/step-by-step-guide-to-build-personalized-airbnb-recommendation-app-with-streamlit-a41d5514d534
+* https://medium.com/geekculture/web-page-content-analysis-made-easy-with-streamlit-a-step-by-step-guide-d5051ed6c3b7
 
-#### Other Members:
+3. Soner Yildirim, Data Scientist 
+* https://towardsdatascience.com/data-cleaning-and-eda-on-airbnb-dataset-with-python-pandas-and-seaborn-7c276116b650
 
-|Name     |  Slack Handle   | 
-|---------|-----------------|
-|[Full Name](https://github.com/[github handle])| @johnDoe        |
-|[Full Name](https://github.com/[github handle]) |     @janeDoe    |
+4. Liam Connors, Data Science Student
+* https://towardsdatascience.com/creating-a-simple-map-with-folium-and-python-4c083abfff94
 
-## Contact
-* If you haven't joined the SF Brigade Slack, [you can do that here](http://c4sf.me/slack).  
-* Our slack channel is `#datasci-projectname`
-* Feel free to contact team leads with any questions or if you are interested in contributing!
+5. Mikey Ling, Data Scientist at Veeya Systems
+* https://medium.com/analytics-vidhya/folium-and-choropleth-weird-names-cool-graph-4f9b99b99190
+
+6. Jingwen Zheng, Data Scientist in Retail
+* https://jingwen-z.github.io/how-to-draw-a-variety-of-maps-with-folium-in-python/
+
+7. Ferhat Metin
+https://www.kaggle.com/code/ferhatmetin34/stanbul-airbnb-data-visualization-with-folium-map/notebook
+
+### Data:
+http://insideairbnb.com/get-the-data/
+
+### Would like to explore:
+Regression Model: Further exploring  correlation between features and pricing in Rio. Feature extraction, engineering and predictive pricing.
+
+Recommender system: better organization and naming of listings both for searching and recommending. In addition, recommending based on features. Price range first and foremost, as well as beds, baths, and neighborhood, and accomodates, better cleaning / eda on desciption in Portuguese
+
+

@@ -45,7 +45,7 @@ def recommend_listings(cosine_sim, df, id, top_n): # id is the id of the listing
 st.set_page_config(page_title='Airbnb Rio Listings Recommender', page_icon=':house:', layout='wide', initial_sidebar_state='auto')
     
 # set the title of the web app
-st.title('Airbnb Rio Listings Recommender')
+st.title('Airbnb: Rio De Janeiro')
 
 
 # show the 5 rows of the data
@@ -58,17 +58,17 @@ tfidf_matrix = create_tfidf_matrix(df)
 cosine_sim = calculate_cosine_similarity(tfidf_matrix)
 
 #st.write(cosine_sim)
-st.write(tfidf_matrix)
+#st.write(tfidf_matrix)
 
 # create the sidebar
-st.sidebar.header('User Input Features')
+st.sidebar.header('Find your next listing with us...')
 # create the user input features
-id = st.sidebar.number_input('Enter the id of the listing', min_value=1, value=1)
+id = st.sidebar.number_input('Enter the listing id here', min_value=1, value=1)
 
 # create the recommendation button
-if st.sidebar.button('Recommend'):
+if st.sidebar.button('Recommendations'):
     recommended_listings = recommend_listings(cosine_sim, df, id, 10)
-    st.header('Recommended Listings')
+    st.header('We Recommend...')
     for i in recommended_listings:
         st.write(i)
 
