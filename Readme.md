@@ -19,14 +19,15 @@ The purpose of this project is take a pre-existing inventory of Airbnb listings 
 * Folium
 * Jupyter 
 * Python - Pandas, Matplotlib, Numpy
+* Regex
 * Streamlit
 
 * etc. 
 
 ## Project Description
-This project initially began with a hypothesis I could accurately predict what a property in Rio De Janiero would list for on Airbnb. From there I would use streamlit to create a web hosted app allowing people to input the features of their property to generate a price. After doing a quick glance at the key features of the data, the data was messy. there was less than 8% correlation with the highest correlated feature.
+This project initially began with a hypothesis I could accurately predict what a property in Rio De Janeiro would list for on Airbnb. From there I would use streamlit to create a web hosted app allowing people to input the features of their property to generate a price. After doing a quick glance at the key features of the data, the data was messy. there was less than 8% correlation with the highest correlated feature.
 
-Data cleaning consisted of removing special characters and spaces from key categories such as price, then reformatting those features frmo objects to integers, floats, or categorical. In addition there were several null vales. Numerical features were imputed with a linear regression (later in the recommender notebook these will be replaced with the mean or mode of each individual column depending on type). Columns with object values were replaced with missing. 
+Data cleaning consisted of removing special characters and spaces from key categories such as price, then reformatting those features from objects to integers, floats, or categorical. In addition there were several null vales. Numerical features were imputed with a linear regression (later in the recommender notebook these will be replaced with the mean or mode of each individual column depending on type). Columns with object values were replaced with missing. 
 
 From there After attempting several versions of a regression model using Polynomial Features, Feature Selection, PCA, One Hot Encoding Neighborhoods, the best Accuracy score produced on the test set was 0.002.
 At this point I pivoted to building an interactive recommender system that suggests additional airbnb options to clients based on a selected listing. The model uses TfidVectorizer to analyze the description, accounting for Potuguese and English stop words to match closely described listings. 
