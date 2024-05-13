@@ -1,0 +1,14 @@
+# Custom .gitignore for your project
+
+# Ignore presentation slides
+Capstone_Presentation_Slides
+Rio_Airbnb_Presentation
+
+# Ignore specific Python script
+rio_recommender.py
+
+# Ignore specific data files
+Df.2
+cleaning_eda_baseline
+
+requirements.txt

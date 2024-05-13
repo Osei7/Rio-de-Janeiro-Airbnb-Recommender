@@ -4,14 +4,11 @@
 ## Project Intro/Objective
 The purpose of this project is take a pre-existing inventory of Airbnb listings in Rio De Janeiro, Brazil and build a listing recommender system. Users can search available inventory by ID and select the option to have an additional 10 listings recommended that most match the initially selected listing. 
 
-### Methods Used
-* Data Visualization
-* Inferential Statistics
-* Machine Learning
-* Natural Learning Processing
-* Recommender Systems
-
-* etc.
+### Features
+- **Data Cleaning**: Scripts to clean and prepare the Airbnb dataset.
+- **Exploratory Data Analysis (EDA)**: Notebooks that explore various features and their relationships.
+- **Recommender System**: A Python script (`recommender.py`) using TF-IDF and cosine similarity to recommend similar listings.
+- **Streamlit Application**: A web application to interact with the recommender system in real-time.
 
 ### Technologies
 * Cosine Similarity
@@ -21,22 +18,30 @@ The purpose of this project is take a pre-existing inventory of Airbnb listings 
 * Python - Pandas, Matplotlib, Numpy
 * Regex
 * Streamlit
+ 
 
-* etc. 
+### Repository Structure
+```
+airbnb-rio-recommender/
+│
+├── data/ # Dataset directory
+│ ├── cleaned_data.csv # Cleaned data file
+│ ├── df.csv # Data file used in the recommender
+│ ├── rio.csv # Original dataset
+│ └── neighbourhoods.geojson # GeoJSON for map visualizations
+│
+├── notebooks/ # Jupyter notebooks for EDA and preprocessing
+│ ├── Cleaning_and_EDA.ipynb
+│ └── recommender.ipynb
+│ └── recommender.py
+│
+├── visualizations/ # Generated visualizations directory
+│ └── various charts and maps
+│
+├── .gitignore # Specifies intentionally untracked files to ignore
+├── README.md # The top-level README for developers using this project
 
-## Project Description
-This project initially began with a hypothesis I could accurately predict what a property in Rio De Janeiro would list for on Airbnb. From there I would use streamlit to create a web hosted app allowing people to input the features of their property to generate a price. After doing a quick glance at the key features of the data, the data was messy. there was less than 8% correlation with the highest correlated feature.
-
-Data cleaning consisted of removing special characters and spaces from key categories such as price, then reformatting those features from objects to integers, floats, or categorical. In addition there were several null vales. Numerical features were imputed with a linear regression (later in the recommender notebook these will be replaced with the mean or mode of each individual column depending on type). Columns with object values were replaced with missing. 
-
-From there After attempting several versions of a regression model using Polynomial Features, Feature Selection, PCA, One Hot Encoding Neighborhoods, the best Accuracy score produced on the test set was 0.002.
-At this point I pivoted to building an interactive recommender system that suggests additional airbnb options to clients based on a selected listing. The model uses TfidVectorizer to analyze the description, accounting for Potuguese and English stop words to match closely described listings. 
-
-## Folders
-1. Code: contains the jupyter lab notebooks for cleaning, Exploratory Data Analysis, and the recommender model.
-2. Data: the sources of data for the project
-3. Visualizations & Presentation: the visual representations of data from EDA and presentation slides of the project
-
+```
 
 ### Credits & Resources:
 1. Hank Butler, GA Assembly DSI
@@ -65,9 +70,6 @@ https://www.kaggle.com/code/ferhatmetin34/stanbul-airbnb-data-visualization-with
 ### Data:
 http://insideairbnb.com/get-the-data/
 
-### Would like to explore:
-Regression Model: Further exploring  correlation between features and pricing in Rio. Feature extraction, engineering and predictive pricing.
 
-Recommender system: better organization and naming of listings both for searching and recommending. In addition, recommending based on features. Price range first and foremost, as well as beds, baths, and neighborhood, and accomodates, better cleaning / eda on desciption in Portuguese
 
 
